@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160529091551) do
+ActiveRecord::Schema.define(version: 20160531011207) do
 
   create_table "coupons", force: :cascade do |t|
     t.string   "code"
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 20160529091551) do
     t.index ["coupon_id"], name: "index_users_on_coupon_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.string   "wistia"
+    t.text     "description"
+    t.string   "title"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
