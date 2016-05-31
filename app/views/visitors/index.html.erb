@@ -3,10 +3,21 @@
 
     <!-- Jumbotron Header -->
     <header class="jumbotron hero-spacer">
-        <h1>Fullstack Videos!</h1>
-        <p>This is it! Our first website tutorial.</p>
-        <p><a class="btn btn-primary btn-large">Call to action!</a>
-        </p>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <%= image_tag('screenshot_warg.png', :class => "img-responsive center-image", :alt => 'Weekly Video') %>
+            <button type="button" class="btn" data-toggle="modal" data-target="#videoModal">
+                <span class="glyphicon glyphicon-play"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-center">A new video tutorial every week! Short, sweet, and jammed with useful advice! Subscribe to get the FULL COLLECTION of past videos and support the project.</p>
+      <p class="text-center"><a class="btn btn-primary btn-large">SUBSCRIBE</a>
+      </p>
     </header>
 
     <hr>
