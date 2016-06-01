@@ -22,82 +22,62 @@
 
     <hr>
 
-    <!-- Title -->
-    <div class="row">
-        <div class="col-lg-12">
-            <h3>Newest Videos</h3>
-        </div>
+                <!-- Title -->
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-6">
+                          <h3>Free Videos</h3>
+                          <% @freevideos.each do |video| %>
+                            <a class="lesson-card" href="/episodes/inviting-users-with-devise_invitable?autoplay=1">
+                                <div class="row">
+                                    <div class="col-sm-2 col-xs-12">
+                                        <img class="img-responsive" src="https://embed-ssl.wistia.com/deliveries/c11346f684a57b0dbd12db2da4736eac94c8b806.jpg?image_crop_resized=400x240" alt="C11346f684a57b0dbd12db2da4736eac94c8b806" />
+                                    </div>
+                                    <div class="col-sm-9 col-xs-10">
+                                        <h3 style="margin-top:0px"><%= video.title %><br></h3>
+                                        <p class="text-muted"><small><span class="label label-danger">Pro Episode</span> · <strong>#120</strong> · <time datetime="2016-05-23T05:00:00Z" data-local="time" data-format="%b %d, %Y">May 23, 2016</time> </small></p>
+                                        <p class="text-muted"><%= video.description %></p>
+                                    </div>
+                                </div>
+                            </a>
+                          <% end %>
+                        </div>
+                        <div class="col-md-6">
+                          <h3>Videos for Supporters</h3>
+                          <% @paidvideos.each do |video| %>
+                            <a class="lesson-card" href="/episodes/inviting-users-with-devise_invitable?autoplay=1">
+                                <div class="row">
+                                    <div class="col-sm-2 col-xs-12">
+                                        <img class="img-responsive" src="https://embed-ssl.wistia.com/deliveries/c11346f684a57b0dbd12db2da4736eac94c8b806.jpg?image_crop_resized=400x240" alt="C11346f684a57b0dbd12db2da4736eac94c8b806" />
+                                    </div>
+                                    <div class="col-sm-9 col-xs-10">
+                                        <h3 style="margin-top:0px"><%= video.title %><br></h3>
+                                        <p class="text-muted"><small><span class="label label-danger">Pro Episode</span> · <strong>#120</strong> · <time datetime="2016-05-23T05:00:00Z" data-local="time" data-format="%b %d, %Y">May 23, 2016</time> </small></p>
+                                        <p class="text-muted"><%= video.description %></p>
+                                    </div>
+                                </div>
+                              </a>
+                            <% end %>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
     </div>
-    <!-- /.row -->
-
-    <!-- Page Features -->
-    <div class="row text-center">
-
-        <div class="col-md-3 col-sm-6 hero-feature">
-            <div class="thumbnail">
-                <%= image_tag('screenshot_warg.png', :alt => 'What Are Ruby Gems') %>
-                <div class="caption">
-                    <h3>What Are Rubygems?</h3>
-                    <p>Learn how we add features to a web application with Rubygems.</p>
-                    <p>
-                        <%= link_to 'Watch for FREE!', video_path('2'), :class => "btn btn-primary" %>
-                    </p>
                 </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6 hero-feature">
-            <div class="thumbnail">
-                <img src="http://placehold.it/800x500" alt="">
-                <div class="caption">
-                    <h3>Feature Label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <p>
-                        <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6 hero-feature">
-            <div class="thumbnail">
-                <img src="http://placehold.it/800x500" alt="">
-                <div class="caption">
-                    <h3>Feature Label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <p>
-                        <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6 hero-feature">
-            <div class="thumbnail">
-                <img src="http://placehold.it/800x500" alt="">
-                <div class="caption">
-                    <h3>Feature Label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <p>
-                        <a href="#" class="btn btn-primary">Buy Now!</a> <a href="#" class="btn btn-default">More Info</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
+                <!-- /.row -->
+                <!-- Page Features -->
+                <div class="row text-center">
+                    <div class="col-md-3 col-sm-6 hero-feature">
     </div>
-    <!-- /.row -->
-
-    <hr>
-
-    <!-- Footer -->
-    <footer>
-        <div class="row">
-            <div class="col-lg-12">
-                <p>Copyright &copy; Your Website 2014</p>
+                </div>
+                <!-- /.row -->
+                <hr>
+                <!-- Footer -->
+                <footer>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p>Copyright &copy; Your Website 2014</p>
+                        </div>
+                    </div>
+                </footer>
             </div>
-        </div>
-    </footer>
-
-</div>
-<!-- /.container -->
+            <!-- /.container -->
