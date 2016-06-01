@@ -28,10 +28,10 @@
                         <div class="col-md-6">
                           <h3>Free Videos</h3>
                           <% @freevideos.each do |video| %>
-                            <a class="lesson-card" href="/episodes/inviting-users-with-devise_invitable?autoplay=1">
+                          <%= link_to(video) do %>
                                 <div class="row">
                                     <div class="col-sm-2 col-xs-12">
-                                        <img class="img-responsive" src="https://embed-ssl.wistia.com/deliveries/c11346f684a57b0dbd12db2da4736eac94c8b806.jpg?image_crop_resized=400x240" alt="C11346f684a57b0dbd12db2da4736eac94c8b806" />
+                                      <img class="img-responsive" src="https://embed-ssl.wistia.com/deliveries/400841c93e1bcd040fea50f3e6ad3ff314e7a64e.jpg?image_crop_resized=200x120" alt="" width="100" height="60">
                                     </div>
                                     <div class="col-sm-9 col-xs-10">
                                         <h3 style="margin-top:0px"><%= video.title %><br></h3>
@@ -39,16 +39,16 @@
                                         <p class="text-muted"><%= video.description %></p>
                                     </div>
                                 </div>
-                            </a>
+                            <% end %>
                           <% end %>
                         </div>
                         <div class="col-md-6">
                           <h3>Videos for Supporters</h3>
                           <% @paidvideos.each do |video| %>
-                            <a class="lesson-card" href="/episodes/inviting-users-with-devise_invitable?autoplay=1">
+                          <%= link_to(video) do %>
                                 <div class="row">
                                     <div class="col-sm-2 col-xs-12">
-                                        <img class="img-responsive" src="https://embed-ssl.wistia.com/deliveries/c11346f684a57b0dbd12db2da4736eac94c8b806.jpg?image_crop_resized=400x240" alt="C11346f684a57b0dbd12db2da4736eac94c8b806" />
+                                      <img class="img-responsive" src="https://embed-ssl.wistia.com/deliveries/400841c93e1bcd040fea50f3e6ad3ff314e7a64e.jpg?image_crop_resized=200x120" alt="" width="100" height="60">
                                     </div>
                                     <div class="col-sm-9 col-xs-10">
                                         <h3 style="margin-top:0px"><%= video.title %><br></h3>
@@ -56,7 +56,7 @@
                                         <p class="text-muted"><%= video.description %></p>
                                     </div>
                                 </div>
-                              </a>
+                              <% end %>
                             <% end %>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                 <footer>
                     <div class="row">
                         <div class="col-lg-12">
-                            <p>Copyright &copy; Your Website 2014</p>
+                            <p>Copyright &copy; That's right. We teach awesomeness!2016</p>
                         </div>
                     </div>
                 </footer>
