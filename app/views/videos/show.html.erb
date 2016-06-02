@@ -17,3 +17,74 @@
 
 <%= link_to 'Edit', edit_video_path(@video) %> |
 <%= link_to 'Back', videos_path %>
+<div class="container">
+  <h2>
+    <span class="pull-right" id="hearts">  <a data-toggle="tooltip" data-placement="left" title="Sign up to heart this episode" href="/pricing"><i class="fa fa-heart text-muted"></i></a>
+
+<span class="text-muted">14</span>
+</span>
+    <%= @video.title %>
+  </h2>
+</div>
+
+<hr />
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+
+      <p class="share-links">
+      Share this episode on
+        <a href="https://twitter.com/intent/tweet?url=https://gorails.com/episodes/improving-query-performance-with-database-indexes?autoplay=1&text=Improving Query Performance with Database Indexes&via=excid3" data-toggle="tooltip" title="Share on Twitter"><i class="fa fa-twitter"></i></a>
+        <a href="https://facebook.com/sharer.php?u=https://gorails.com/episodes/improving-query-performance-with-database-indexes?autoplay=1" data-toggle="tooltip" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
+        <!--
+          <a href="https://plus.google.com/share?url=https://gorails.com/episodes/improving-query-performance-with-database-indexes?autoplay=1"><i class="fa fa-google-plus"></i></a>
+          <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://gorails.com/episodes/improving-query-performance-with-database-indexes?autoplay=1&title=Improving Query Performance with Database Indexes&summary=Learn how to improve the speed of your database queries by adding database indexes to your tables"><i class="fa fa-linkedin"></i></a>
+        -->
+        <a href="//www.reddit.com/r/ruby/submit" onclick="window.location = '//www.reddit.com/r/ruby/submit?url=' + encodeURIComponent(window.location); return false" data-toggle="tooltip" title="Share on Reddit"><i class="fa fa-reddit"></i></a>
+      </p>
+
+      <hr />
+
+      <p class="text-muted">
+        Episode 119
+        ·
+        May 17, 2016
+        ·
+<script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_<%= @video.wistia %> videoFoam=true" style="height:100%;width:100%">&nbsp;</div></div></div>
+</p>
+
+      <p><%= @video.description %></p>
+
+          <a href="/episodes?tagged=Performance"><span class="label label-danger">Performance</span></a>
+
+      <div></div>
+
+      <hr />
+
+      <h3>Discussion</h3>
+      <div id="disqus_thread"></div>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script type="text/javascript">
+    if(typeof DISQUS === "undefined"){
+        var disqus_shortname = 'railsapps'; // required: replace example with your forum shortname
+        var disqus_identifier = document.title;
+        var disqus_url = location.href.split("?")[0];
+
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    } else {
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.identifier = document.title;
+            this.page.url = location.href.split("?")[0];
+          }
+        });
+    }
+</script>
+
+    </div>
