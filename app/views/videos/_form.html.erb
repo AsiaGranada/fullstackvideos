@@ -26,6 +26,11 @@
     <%= f.text_field :title %>
   </div>
 
+  <div class="field">
+    <%= f.label :level %>
+    <%= f.select(:level, Video.levels.keys.map {|level| [level.titleize,level]}) %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
