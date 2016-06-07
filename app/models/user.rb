@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  enum role: [:user, :vip, :admin]
+  enum role: [:admin, :user, :subscriber, :expired]
   after_initialize :set_default_role, :if => :new_record?
   after_validation :set_coupon
 
@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates_associated :coupon
 
   def set_default_role
-    self.role ||= :user
+    self.role ||= :subscriber
   end
 
   def set_coupon
