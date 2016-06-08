@@ -1,27 +1,4 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Wistia:</strong>
-  <%= @video.wistia %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @video.description %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @video.title %>
-</p>
-
-<p>
-  <strong>Level:</strong>
-  <%= @video.level %>
-</p>
-
-<%= link_to 'Edit', edit_video_path(@video) %> |
-<%= link_to 'Back', videos_path %>
 <div class="container">
   <h2>
     <span class="pull-right" id="hearts">  <a data-toggle="tooltip" data-placement="left" title="Sign up to heart this episode" href="/pricing"><i class="fa fa-heart text-muted"></i></a>
@@ -52,16 +29,16 @@
       <hr />
 
       <p class="text-muted">
-        Episode 119
+        Episode 1
         ·
-        May 17, 2016
+        June 3, 2016
         ·
 <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_<%= @video.wistia %> videoFoam=true" style="height:100%;width:100%">&nbsp;</div></div></div>
 </p>
 
       <p><%= @video.description %></p>
 
-          <a href="/episodes?tagged=Performance"><span class="label label-danger">Performance</span></a>
+          <span class="label label-danger"><%= @video.level.titlecase %></span>
 
       <div></div>
 
