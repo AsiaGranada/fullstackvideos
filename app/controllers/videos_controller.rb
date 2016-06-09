@@ -1,6 +1,7 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:show]
+  before_action :current_subscriber?, only: [:show]
 
   # GET /videos
   # GET /videos.json
@@ -72,5 +73,12 @@ class VideosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
       params.require(:video).permit(:wistia, :description, :title)
+    end
+
+    def current_subscriber?
+      if current_user.expired?
+        redirect_to root_path, :alert => "Subscription has expired for #{current_user.email}.
+          Would you like to renew?"
+      end
     end
 end
