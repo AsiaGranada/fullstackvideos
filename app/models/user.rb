@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :coupon
   validates_associated :coupon
 
+  before_destroy :cancel_subscription
+
   def set_default_role
     self.role ||= :user
   end
@@ -16,6 +18,10 @@ class User < ActiveRecord::Base
     return false if self.coupon.nil?
     coupon = Coupon.find_by code: self.coupon.code
     self.coupon = coupon
+  end
+
+  def cancel_subscription
+    CancelSubscriptionJob.perform_later(self) if self.subscriber?
   end
 
   # Include default devise modules. Others available are:

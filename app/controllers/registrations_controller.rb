@@ -9,6 +9,16 @@ class RegistrationsController < Devise::RegistrationsController
     respond_with self.resource
   end
 
+  def expire
+    if current_user.subscriber?
+      CancelSubscriptionJob.perform_later(current_user)
+      redirect_to root_path, :alert => "Subscription cancelled. No further charges.
+        Access continues until the end of the subscription period."
+    else
+      redirect_to root_path, :alert => "Subscription not found."
+    end
+  end
+
   private
 
   def sign_up_params
