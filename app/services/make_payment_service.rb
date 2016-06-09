@@ -8,7 +8,6 @@ class MakePaymentService
     customer = create_customer(user)
     # charge = create_charge(customer, user)
     user.stripe_token = nil
-    Rails.logger.info("Stripe transaction for #{user.email}") if charge[:paid] == true
   rescue Stripe::InvalidRequestError => e
     user.errors[:base] << e.message
     PaymentFailureMailer.failed_payment_email(user).deliver_now
@@ -20,11 +19,15 @@ class MakePaymentService
   end
 
   def create_customer(user)
+    Rails.logger.info("initiate Stripe transaction for #{user.email}")
     customer = Stripe::Customer.create(
       :email => user.email,
       :card => user.stripe_token,
       :plan => 'vip_monthly'
     )
+    user.subscriber!
+    user.stripe_id = customer.id
+    user.save!
   end
 
   def create_charge(customer, user)

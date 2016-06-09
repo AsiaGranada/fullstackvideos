@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates_associated :coupon
 
   def set_default_role
-    self.role ||= :subscriber
+    self.role ||= :user
   end
 
   def set_coupon

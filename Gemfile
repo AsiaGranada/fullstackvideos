@@ -24,6 +24,7 @@ gem 'devise'
 gem 'gibbon'
 gem 'high_voltage', :github=>"thoughtbot/high_voltage"
 gem 'stripe'
+gem 'stripe_event'
 gem 'sucker_punch'
 group :development do
   gem 'better_errors'
