@@ -3,15 +3,19 @@
     <div class="authform">
       <h3>Cancel Subscription</h3>
       <p>You'll have access to the site until the end of your current subscription period. After that, no access and no further charges.</p>
-      <%= button_to "Cancel my subscription", registration_path(resource_name), :data => { :confirm => "Are you sure you wish to cancel?" }, :method => :expire, :class => 'button right' %>
+      <%= button_to "Cancel my subscription", subscriptions_expire_path, :data => { :confirm => "Are you sure you wish to cancel?" }, :class => 'button right' %>
     </div>
   <% else %>
-    <h3>Subscription Cancelled</h3>
-    <p>You've cancelled your subscription. You'll have access until the end of your subscription period.</p>
+    <div class="authform">
+      <h3>Subscription Cancelled</h3>
+      <p>You've cancelled your subscription. You'll have access until the end of your subscription period.</p>
+    </div>
   <% end %>
 <% else %>
-  <h3>No Subscription Found</h3>
-    <p>It appears you do not have a current subscription.</p>
+    <div class="authform">
+      <h3>No Subscription Found</h3>
+        <p>It appears you do not have a current subscription.</p>
+    </div>
 <% end %>
 <div class="authform">
   <h3>Edit <%= resource_name.to_s.humanize %></h3>
