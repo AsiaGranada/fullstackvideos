@@ -7,3 +7,15 @@
     </div>
   <% end %>
 <% end %>
+<% if user_signed_in? %>
+  <% if resource.subscriber? %>
+    <% if resource.cancelled? %>
+      <div class="alert alert-alert">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <div id="flash_notice">
+          You've cancelled your subscription.
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

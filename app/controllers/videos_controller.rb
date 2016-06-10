@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, only: [:show], :unless => :free_video?
   before_action :current_subscriber?, only: [:show]
 
   # GET /videos
@@ -76,9 +76,14 @@ class VideosController < ApplicationController
     end
 
     def current_subscriber?
-      if current_user.expired?
-        redirect_to root_path, :alert => "Subscription has expired for #{current_user.email}.
+      if user_signed_in? && current_user.expired?
+        redirect_to root_path, :alert => "Subscription has
+          expired for #{current_user.email}.
           Would you like to renew?"
       end
+    end
+
+    def free_video?
+      @video.free?
     end
 end

@@ -12,6 +12,8 @@ class RegistrationsController < Devise::RegistrationsController
   def expire
     if current_user.subscriber?
       CancelSubscriptionJob.perform_later(current_user)
+      current_user.cancelled = true
+      current_user.save!
       redirect_to root_path, :alert => "Subscription cancelled. No further charges.
         Access continues until the end of the subscription period."
     else
