@@ -1,5 +1,9 @@
-<h1>New Video</h1>
+<div class="page-header">
+  <%= link_to videos_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <h1>New video</h1>
+</div>
 
-<%= render 'form', video: @video %>
-
-<%= link_to 'Back', videos_path %>
+<%= render 'form' %>

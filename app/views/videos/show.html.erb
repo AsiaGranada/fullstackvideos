@@ -1,33 +1,9 @@
-
-<div class="container">
-  <h2>
-    <span class="pull-right" id="hearts">  <a data-toggle="tooltip" data-placement="left" title="Sign up to heart this episode" href="/pricing"><i class="fa fa-heart text-muted"></i></a>
-
-<span class="text-muted">14</span>
-</span>
-    <%= @video.title %>
-  </h2>
-</div>
-
-<hr />
-
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
-
-      <p class="share-links">
-      Share this episode on
-        <a href="https://twitter.com/intent/tweet?url=https://gorails.com/episodes/improving-query-performance-with-database-indexes?autoplay=1&text=Improving Query Performance with Database Indexes&via=excid3" data-toggle="tooltip" title="Share on Twitter"><i class="fa fa-twitter"></i></a>
-        <a href="https://facebook.com/sharer.php?u=https://gorails.com/episodes/improving-query-performance-with-database-indexes?autoplay=1" data-toggle="tooltip" title="Share on Facebook"><i class="fa fa-facebook"></i></a>
-        <!--
-          <a href="https://plus.google.com/share?url=https://gorails.com/episodes/improving-query-performance-with-database-indexes?autoplay=1"><i class="fa fa-google-plus"></i></a>
-          <a href="http://www.linkedin.com/shareArticle?mini=true&url=https://gorails.com/episodes/improving-query-performance-with-database-indexes?autoplay=1&title=Improving Query Performance with Database Indexes&summary=Learn how to improve the speed of your database queries by adding database indexes to your tables"><i class="fa fa-linkedin"></i></a>
-        -->
-        <a href="//www.reddit.com/r/ruby/submit" onclick="window.location = '//www.reddit.com/r/ruby/submit?url=' + encodeURIComponent(window.location); return false" data-toggle="tooltip" title="Share on Reddit"><i class="fa fa-reddit"></i></a>
-      </p>
-
-      <hr />
-
+      <h2>
+        <%= @video.title %>
+      </h2>
       <p class="text-muted">
         Episode 1
         ·
@@ -69,4 +45,6 @@
     }
 </script>
 
-    </div>
+</div>
+
+<hr />

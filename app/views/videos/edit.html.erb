@@ -1,6 +1,13 @@
-<h1>Editing Video</h1>
+<div class="page-header">
+  <%= link_to videos_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    Back
+  <% end %>
+  <%= link_to @video, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Show
+  <% end %>
+  <h1>Editing video</h1>
+</div>
 
-<%= render 'form', video: @video %>
-
-<%= link_to 'Show', @video %> |
-<%= link_to 'Back', videos_path %>
+<%= render 'form' %>

@@ -24,6 +24,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'gibbon'
 gem 'high_voltage', :github=>"thoughtbot/high_voltage"
+gem 'record_tag_helper', '~> 1.0'
 gem 'stripe'
 gem 'stripe_event'
 gem 'sucker_punch'
