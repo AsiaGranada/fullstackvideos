@@ -28,9 +28,19 @@
             <td><strong><%= video.title %></strong></td>
             <td><%= video.description %></td>
             <td><%= video.wistia %></td>
-            <td><%= link_to 'Show', video %></td>
-        <td><%= link_to 'Edit', edit_video_path(video) %></td>
-        <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td>
+                <%= link_to video, class: 'btn btn-primary btn-xs' do %>
+                  <span class="glyphicon glyphicon-info-sign"></span>
+                <% end %>
+            </td>
+            <td>
+                <%= link_to edit_video_path(video), class: 'btn btn-primary btn-xs' do %>
+                  <span class="glyphicon glyphicon-edit"></span>
+                <% end %>
+            </td>
+            <td>
+                <%= link_to('<i class="glyphicon glyphicon-remove-sign"> </i>'.html_safe, video_path(video), :data => { :confirm => "Are you sure?" }, :method => :delete, class: 'btn-xs') %>
+            </td>
       <% end %>
     </tbody>
   </table>
