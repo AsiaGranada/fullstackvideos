@@ -31,7 +31,7 @@ class VideosController < ApplicationController
 
     respond_to do |format|
       if @video.save
-        format.html { redirect_to @video, notice: 'Video was successfully created.' }
+        format.html { redirect_to videos_path, notice: 'Created video listing.' }
         format.json { render :show, status: :created, location: @video }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class VideosController < ApplicationController
   def update
     respond_to do |format|
       if @video.update(video_params)
-        format.html { redirect_to @video, notice: 'Video was successfully updated.' }
+        format.html { redirect_to videos_path, notice: 'Updated video listing.' }
         format.json { render :show, status: :ok, location: @video }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class VideosController < ApplicationController
   def destroy
     @video.destroy
     respond_to do |format|
-      format.html { redirect_to videos_url, notice: 'Video was successfully destroyed.' }
+      format.html { redirect_to videos_url, notice: 'Deleted video listing.' }
       format.json { head :no_content }
     end
   end
@@ -72,7 +72,7 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:wistia, :description, :title)
+      params.require(:video).permit(:wistia, :description, :title, :level, :date)
     end
 
     def current_subscriber?
