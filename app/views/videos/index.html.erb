@@ -15,6 +15,8 @@
             <th>Title</th>
             <th>Description</th>
             <th>Wistia ID</th>
+            <th>Duration</th>
+            <th>Presenter</th>
             <th></th>
         <th></th>
         <th></th>
@@ -28,6 +30,8 @@
             <td><strong><%= video.title %></strong></td>
             <td><%= video.description %></td>
             <td><%= video.wistia %></td>
+            <td><%= video.duration %></td>
+            <td><%= video.presenter %></td>
             <td>
                 <%= link_to video, class: 'btn btn-primary btn-xs' do %>
                   <span class="glyphicon glyphicon-info-sign"></span>

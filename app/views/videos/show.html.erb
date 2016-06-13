@@ -8,8 +8,11 @@
         <time datetime="<%= @video.date %>" itemprop="datePublished"><%= @video.date.to_formatted_s(:long) %></time>
         &middot;
         <%= @video.level.titlecase %>
+        &middot;
+        <%= @video.duration %> minutes
+        &middot;
+        <%= @video.presenter %>
       </p>
-      <p><%= @video.description %></p>
       <p>
       <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_<%= @video.wistia %> videoFoam=true" style="height:100%;width:100%">&nbsp;</div></div></div>
       </p>
@@ -17,8 +20,9 @@
   </div>
 
       <hr />
-
-      <h3>Discussion</h3>
+      <h3 class="text-muted">Description</h3>
+      <p class="text-muted"><%= @video.description %></p>
+      <hr />
       <div id="disqus_thread"></div>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <script type="text/javascript">
