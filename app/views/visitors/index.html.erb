@@ -1,53 +1,42 @@
 <!-- Page Content -->
 <%= render :partial => 'form' %>
 <div class="container">
-
-    <!-- Jumbotron Header -->
-    <header class="jumbotron hero-spacer">
-
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><span class="wistia_embed wistia_async_5ixtput3r7 popover=true popoverAnimateThumbnail=true videoFoam=true" style="display:inline-block;height:100%;width:100%">&nbsp;</span></div></div>
-          </div>
-        </div>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-md-2">
       </div>
-      <p class="text-center">A new video tutorial every week. Support the project! Only $19 monthly to get all the videos.</p>
-    </header>
-
-    <hr>
-
-                <!-- Title -->
-                <div class="row">
-                    <div class="row">
-                        <div class="col-md-4">
-                          <h3>Free Videos</h3>
-                          <% @freevideos.each do |video| %>
-                            <%= render partial: 'video', locals: {video: video} %>
-                          <% end %>
-                        </div>
-                        <div class="col-md-4">
-                          <h3>For Beginners</h3>
-                          <% @beginnervideos.each do |video| %>
-                            <%= render partial: 'video', locals: {video: video} %>
-                           <% end %>
-                        </div>
-                        <div class="col-md-4">
-                          <h3>For Pros</h3>
-                          <% @advancedvideos.each do |video| %>
-                            <%= render partial: 'video', locals: {video: video} %>
-                          <% end %>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
+      <div class="col-md-8">
+        <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><span class="wistia_embed wistia_async_5ixtput3r7 popover=true popoverAnimateThumbnail=true videoFoam=true" style="display:inline-block;height:100%;width:100%">&nbsp;</span></div></div>
+      </div>
     </div>
-                </div>
-                <!-- /.row -->
-                <!-- Page Features -->
-                <div class="row text-center">
-                    <div class="col-md-3 col-sm-6 hero-feature">
+    <div class="col-md-2">
     </div>
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container -->
+  </div>
+  <br/>
+  <h3 class="text-center">A new video every week with Daniel Kehoe and AsiaG</h4>
+  <h4 class="text-center">Support the project! Only $19 monthly for all the videos.</h4>
+</div>
+<div class="container" id="videos">
+  <div class="row">
+      <div class="col-md-4">
+        <h3>Free Videos</h3>
+        <% @freevideos.each do |video| %>
+          <%= render partial: 'video', locals: {video: video} %>
+        <% end %>
+      </div>
+      <div class="col-md-4">
+        <h3>For Beginners</h3>
+        <% @beginnervideos.each do |video| %>
+          <%= render partial: 'video', locals: {video: video} %>
+         <% end %>
+      </div>
+      <div class="col-md-4">
+        <h3>For Pros</h3>
+        <% @advancedvideos.each do |video| %>
+          <%= render partial: 'video', locals: {video: video} %>
+        <% end %>
+      </div>
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->

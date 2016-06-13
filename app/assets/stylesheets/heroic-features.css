@@ -4,12 +4,12 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-.hero-spacer {
-    margin-top: 50px;
-}
-
 .hero-feature {
     margin-bottom: 30px;
+}
+
+.jumbotron {
+  width: 800px;
 }
 
 footer {
