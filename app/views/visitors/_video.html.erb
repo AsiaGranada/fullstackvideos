@@ -4,16 +4,16 @@
       <img class="img-responsive" src="https://embed-ssl.wistia.com/deliveries/400841c93e1bcd040fea50f3e6ad3ff314e7a64e.jpg?image_crop_resized=200x120" alt="" width="100" height="60">
     </div>
     <div class="col-sm-9 col-xs-10">
-      <h3 style="margin-top:0px"><%= video.title %><br></h3>
+      <h3 style="margin-top:0px"><%= video.title unless video.title.nil? %><br></h3>
       <p class="text-muted">
         <small>
           <%= render partial: 'videolink', locals: {video: video} %>
           &nbsp;
-          <time datetime="<%= video.date %>"><%= video.date.to_formatted_s(:long) %></time>
+          <time datetime="<%= video.date %>"><%= video.date.to_formatted_s(:long) unless video.date.nil? %></time>
         </small>
       </p>
       <p class="text-muted">
-        <%= video.description %>
+        <%= video.description unless video.description.nil? %>
       </p>
     </div>
   </div>
