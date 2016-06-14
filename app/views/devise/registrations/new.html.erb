@@ -1,56 +1,62 @@
-<% content_for :head do %>
-  <%= render 'javascript' %>
-<% end %>
-<div class="authform">
-  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form', :class => 'payment-form'}) do |f| %>
-    <h3>Subscribe</h3>
-    <div id='stripe_error' class='alert alert-danger' style='display:none' ></div>
-    <%= devise_error_messages! %>
-    <p>
-      $19/monthly
-    </p>
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, :autofocus => true, class: 'form-control' %>
+<%= render :partial => 'visitors/form' %>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-md-4">
     </div>
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+    <div class="col-md-4">
+      <h3>
+        Support the project!
+      </h3>
+      <h4>
+        $19 per month
+      </h4>
+      <p>
+        We're on a mission to help everyone to learn to code.
+      </p>
+      <p>
+        Each week we offer a new, free video. Support the project and get access to all the videos from past weeks.
+      </p>
+
+      <% if user_signed_in? %>
+        <% if current_user.expired? %>
+            <a href="#" class="btn btn-danger btn-xlarge" data-toggle="modal" data-target="#purchaseModal">Renew</a>
+        <% else %>
+          You have a subscription.
+        <% end %>
+      <% else %>
+        <a href="#" class="btn btn-danger btn-xlarge" data-toggle="modal" data-target="#purchaseModal">Subscribe</a>
+      <% end %>
     </div>
-    <div class="form-group">
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+    <div class="col-md-4">
     </div>
-    <div class="form-group">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
     </div>
-    <% if resource.stripe_token %>
-      <p>Credit card acceptance is pending.</p>
-    <% else %>
-      <div class="form-group">
-        <%= label_tag :card_number, "Credit Card Number" %>
-        <%= text_field_tag :card_number, nil, name: nil, class: 'form-control', data: { stripe: 'number' } %>
-      </div>
-      <div class="form-group">
-        <%= label_tag :card_code, "Card Security Code" %>
-        <%= text_field_tag :card_code, nil, name: nil, class: 'form-control', data: { stripe: 'cvc' } %>
-      </div>
-      <br />
-      <div class="form-group">
-        <%= label_tag :card_month, "Card Expiry" %>
-        <%= select_month nil, { use_two_digit_numbers: true}, { name: nil, data: {stripe: 'exp-month' } } %>
-        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, { name: nil, data: {stripe: 'exp-year' } } %>
-      </div>
-    <% end %>
-    <br />
-    <%= f.fields_for :coupon do |ff| %>
-      <div class="form-group">
-        <%= ff.label 'Coupon code' %>
-        <%= ff.text_field :code, :class => 'form-control' %>
-      </div>
-    <% end %>
-    <%= f.hidden_field :stripe_token %>
-    <%= f.submit 'Sign up', :class => 'button right' %>
-  <% end %>
+    <div class="col-md-6">
+      <h3>
+        FAQ
+      </h3>
+      <dl>
+        <dt>
+          Who is AsiaG? Who is Daniel Kehoe?
+        </dt>
+        <dd>
+          AsiaG is a beginner who asks all the right questions. Daniel Kehoe is the author of the popular book <a href="http://learn-rails.com/learn-ruby-on-rails.html"><i>Learn Ruby on Rails</i></a> and an experienced technologist known for the <a href="http://railsapps.github.io/">RailsApps</a> open source project. Our videos are quick, relevant, and give you better explanations than you'll find anywhere else.
+        </dd>
+        <dt>
+          Why do I need to subscribe?
+        </dt>
+        <dd>
+        You don't need to subscribe to watch a new, free video every week. But to keep the free videos coming, we need your help. Support the project and you'll get access to the archives of all past videos.
+        </dd>
+        <dt>
+          Do you offer a free trial?
+        </dt>
+        <dd>
+          No, but your satisfaction is guaranteed. Just email and ask for a refund of the current month's subscription cost, no questions asked.
+        </dd>
+      </dl>
+    <div class="col-md-3">
+    </div>
 </div>
