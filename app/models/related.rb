@@ -1,0 +1,2 @@
+class Related < ApplicationRecord
+end
