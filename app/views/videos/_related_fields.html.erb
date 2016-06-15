@@ -1,9 +1,7 @@
-<fieldset>
-  <%= f.label :url %><br />
-  <%= f.text_area :url %><br />
-  <%= f.label :text %><br />
-  <%= f.text_area :text %><br />
-  <%= f.label :description %><br />
-  <%= f.text_area :description %><br />
-  <%= f.label :_destroy, "Remove Related" %>
-</fieldset>
+<div class='nested-fields'>
+  <div class="field">
+    <%= f.label 'ID' %>
+    <%= f.text_field :wistia %>
+    <%= link_to_remove_association 'remove', f %>
+  </div>
+</div>

@@ -18,6 +18,7 @@ class VideosController < ApplicationController
   # GET /videos/new
   def new
     @video = Video.new
+    @video.relateds.new
   end
 
   # GET /videos/1/edit
@@ -28,6 +29,7 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
+    @video.relateds.build
 
     respond_to do |format|
       if @video.save
@@ -73,7 +75,10 @@ class VideosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
       params.require(:video).permit(:wistia, :description, :title,
-                                      :level, :date, :duration, :presenter)
+                                      :level, :date, :duration, :presenter,
+                                      relateds_attributes: [ :id, :wistia, :_destroy ],
+                                      resources_attributes: [ :id, :url, :text, :description, :_destroy ]
+                                      )
     end
 
     def current_subscriber?
