@@ -19,6 +19,7 @@ class VideosController < ApplicationController
   def new
     @video = Video.new
     @video.relateds.new
+    @video.resources.new
   end
 
   # GET /videos/1/edit
@@ -30,6 +31,7 @@ class VideosController < ApplicationController
   def create
     @video = Video.new(video_params)
     @video.relateds.build
+    @video.resources.build
 
     respond_to do |format|
       if @video.save
