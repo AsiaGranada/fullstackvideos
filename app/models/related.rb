@@ -1,3 +1,3 @@
 class Related < ApplicationRecord
-  belongs_to :videos
+  belongs_to :video
 end

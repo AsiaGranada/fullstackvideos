@@ -1,27 +1,45 @@
 <div class="container">
-  <div class="row">
-    <div class="col-sm-8">
-      <h2>
-        <%= @video.title unless @video.title.nil? %>
-      </h2>
-      <p class="text-muted">
-        <time datetime="<%= @video.date %>" itemprop="datePublished"><%= @video.date.to_formatted_s(:long) unless @video.date.nil? %></time>
-        &middot;
-        <%= @video.level.titlecase unless @video.level.nil? %>
-        &middot;
-        <%= @video.duration unless @video.duration.nil? %> minutes
-        &middot;
-        <%= @video.presenter unless @video.presenter.nil? %>
-      </p>
-      <p>
-      <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script><div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;"><div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;"><div class="wistia_embed wistia_async_<%= @video.wistia %> videoFoam=true" style="height:100%;width:100%">&nbsp;</div></div></div>
-      </p>
-    <div>
-  </div>
-
+   <div class="row">
+       <div class="col-md-8">
+           <h2><%= @video.title unless @video.title.nil? %></h2>
+           <p class="text-muted">
+             <time datetime="<%= @video.date %>" itemprop="datePublished"><%= @video.date.to_formatted_s(:long) unless @video.date.nil? %></time>
+             &middot;
+             <%= @video.level.titlecase unless @video.level.nil? %>
+             &middot;
+             <%= @video.duration unless @video.duration.nil? %> minutes
+             &middot;
+             <%= @video.presenter unless @video.presenter.nil? %>
+           </p>
+           <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script>
+           <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+             <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+               <div class="wistia_embed wistia_async_<%= @video.wistia %> videoFoam=true" style="height:100%;width:100%">&nbsp;
+               </div>
+             </div>
+           </div>
+       </div>
+       <div class="col-md-4">
+           <h3>Watch Next</h3>
+           <ul>
+           <% @relateds.each do |video| %>
+           <%= render partial: 'video', locals: {video: video} %>
+           <% end %>
+           </ul>
+         </div>
+   </div>
+</div>
+<div class="container">
       <hr />
       <h3 class="text-muted">Overview</h3>
-      <p class="text-muted"><%= @video.description unless @video.description.nil? %></p>
+      <p><%= @video.description unless @video.description.nil? %></p>
+      <hr />
+      <h3 class="text-muted">Resources</h3>
+      <ul>
+      <% @video.resources.each do |resource| %>
+      <li><%= link_to resource.text, resource.url %> <%=resource.description %></li>
+      <% end %>
+      </ul>
       <hr />
       <div id="disqus_thread"></div>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

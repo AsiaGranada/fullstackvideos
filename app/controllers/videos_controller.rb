@@ -12,8 +12,13 @@ class VideosController < ApplicationController
   # GET /videos/1
   # GET /videos/1.json
   def show
-    @video = Video.find(params[:id])
-  end
+   @video = Video.find(params[:id])
+   @relateds = []
+   list_of_relateds = @video.relateds
+   list_of_relateds.each do |item|
+     @relateds << Video.find_by_wistia(item.wistia)
+   end
+ end
 
   # GET /videos/new
   def new

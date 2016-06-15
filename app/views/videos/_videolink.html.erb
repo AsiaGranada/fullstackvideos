@@ -1,0 +1,13 @@
+<% if video.free? %>
+  <span class="btn btn-primary btn-xs">Free</span>
+<% else %>
+  <% if user_signed_in? %>
+    <% if current_user.expired? %>
+        <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#purchaseModal">Renew</a>
+    <% else %>
+      <%= link_to("View", video, :class => "btn btn-success btn-xs") %>
+    <% end %>
+  <% else %>
+    <a href="#" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#purchaseModal">Subscribe</a>
+  <% end %>
+<% end %>
