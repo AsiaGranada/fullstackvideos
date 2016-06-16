@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 gem 'rails', '>= 5.0.0.rc1', '< 5.1'
-gem 'sqlite3'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -33,4 +32,8 @@ group :development do
   gem 'better_errors'
   gem 'quiet_assets'
   gem 'rails_layout'
+  gem 'sqlite3'
+end
+group :production do
+  gem 'pg'
 end
