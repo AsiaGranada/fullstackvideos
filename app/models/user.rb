@@ -14,7 +14,6 @@ class User < ActiveRecord::Base
   end
 
   def set_coupon
-    self.coupon.code = 'FREE' if self.admin?
     return false if errors.any?
     return false if self.coupon.nil?
     coupon = Coupon.find_by code: self.coupon.code

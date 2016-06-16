@@ -1,9 +1,11 @@
 class CreateAdminService
   def call
-    user = User.find_or_create_by!(email: Rails.application.secrets.admin_email) do |user|
-        user.password = Rails.application.secrets.admin_password
-        user.password_confirmation = Rails.application.secrets.admin_password
-        user.admin!
-      end
+    user = User.where(email: Rails.application.secrets.admin_email).first_or_initialize do |u|
+      u.password = Rails.application.secrets.admin_password
+      u.password_confirmation = Rails.application.secrets.admin_password
+      u.admin!
+    end
+    user.save!(:validate => false) if user.new_record?
+    user
   end
 end
