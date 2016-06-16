@@ -12,26 +12,28 @@
     <div class="col-md-2">
     </div>
   </div>
-  <br/>
   <h3 class="text-center">A new video every week.</h4>
+   <p class="small text-center text-muted">
+     We're on a mission to help everyone to learn to code.
+   </p>
   <h4 class="text-center">Support the project! Only $19 monthly.</h4>
 </div>
 <div class="container" id="videos">
   <div class="row">
       <div class="col-md-4">
-        <h3>Free Videos</h3>
+        <h3 class="text-muted">Free Videos</h3>
         <% @freevideos.each do |video| %>
           <%= render partial: 'video', locals: {video: video} %>
         <% end %>
       </div>
       <div class="col-md-4">
-        <h3>For Beginners</h3>
+        <h3 class="text-muted">For Beginners</h3>
         <% @beginnervideos.each do |video| %>
           <%= render partial: 'video', locals: {video: video} %>
          <% end %>
       </div>
       <div class="col-md-4">
-        <h3>Pro Videos</h3>
+        <h3 class="text-muted">Pro Videos</h3>
         <% @advancedvideos.each do |video| %>
           <%= render partial: 'video', locals: {video: video} %>
         <% end %>
