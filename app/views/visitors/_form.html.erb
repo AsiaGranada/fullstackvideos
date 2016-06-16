@@ -38,17 +38,7 @@
               <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+10}, { name: nil, data: {stripe: 'exp-year' } } %>
             </div>
           <% end %>
-          <a href="#Coupon" data-toggle="collapse">Do you have an invitation code?</a>
-          <br />
-          <div id="Coupon" class="collapse">
-            <%= f.fields_for :coupon do |ff| %>
-              <div class="form-group">
-                <%= ff.label 'Invitation code' %>
-                <%= ff.text_field :code, :class => 'form-control' %>
-              </div>
-            <% end %>
-          </div>
-          <br />
+
           <%= f.hidden_field :stripe_token %>
           <%= f.submit 'Subscribe', :class => 'button right' %>
         <% end %>
