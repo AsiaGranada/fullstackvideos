@@ -1,7 +1,9 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
+  before_action :admin_only, :except => :show
   before_action :authenticate_user!, only: [:show], :unless => :free_video?
   before_action :current_subscriber?, only: [:show]
+
 
   # GET /videos
   # GET /videos.json
@@ -93,6 +95,16 @@ class VideosController < ApplicationController
         redirect_to root_path, :alert => "Subscription has
           expired for #{current_user.email}.
           Would you like to renew?"
+      end
+    end
+
+    def admin_only
+      unless current_user.nil?
+        unless current_user.admin?
+          redirect_to :back, :alert => "Access denied."
+        end
+      else
+        redirect_to root_path, :alert => "Please sign in."
       end
     end
 
