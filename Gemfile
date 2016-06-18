@@ -28,6 +28,10 @@ gem 'record_tag_helper', '~> 1.0'
 gem 'stripe'
 gem 'stripe_event'
 gem 'sucker_punch'
+gem 'wistia-api', :git => 'git://github.com/wistia/wistia-api.git'
+# required for wistia-api gem:
+gem 'rails-observers', github: 'rails/rails-observers'
+gem 'activeresource', github: 'rails/activeresource'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'

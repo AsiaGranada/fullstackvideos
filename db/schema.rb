@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614074021) do
+ActiveRecord::Schema.define(version: 20160618121324) do
 
   create_table "coupons", force: :cascade do |t|
     t.string   "code"
@@ -67,12 +67,13 @@ ActiveRecord::Schema.define(version: 20160614074021) do
     t.string   "wistia"
     t.text     "description"
     t.string   "title"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "level"
     t.date     "date"
     t.string   "duration"
     t.string   "presenter"
+    t.string   "thumbnail_url"
   end
 
 end

@@ -39,6 +39,14 @@ class VideosController < ApplicationController
     @video = Video.new(video_params)
     @video.relateds.build
     @video.resources.build
+    # obtain video metadata using the Wistia API
+    # example wistia IDs: 'pc2jpdwzob', '5ixtput3r7'
+    Rails.logger.info("obtaining metadata from Wistia API for #{@video.wistia}")
+    media = Wistia::Media.find(@video.wistia)
+    @video.title = media.name
+    @video.description = ActionController::Base.helpers.strip_tags(media.description)
+    @video.duration = (media.duration.to_i / 60) % 60
+    @video.thumbnail_url = media.thumbnail.url
 
     respond_to do |format|
       if @video.save
