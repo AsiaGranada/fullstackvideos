@@ -18,7 +18,7 @@ class VideosController < ApplicationController
    @relateds = []
    list_of_relateds = @video.relateds
    list_of_relateds.each do |item|
-     @relateds << Video.find_by_wistia(item.wistia)
+     @relateds << Video.where(wistia: item.wistia).first
    end
  end
 
