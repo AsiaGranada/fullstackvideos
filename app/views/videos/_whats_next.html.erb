@@ -1,0 +1,23 @@
+<%= link_to(video) do %>
+  <% unless video.thumbnail_url.nil? %>
+    <div class="row">
+      <div class="col-xs-12 clearfix">
+        <img class="img-responsive pull-left" src="<%= video.thumbnail_url %>" alt="" width="200">
+        <br/>
+      </div>
+    </div>
+  <% end %>
+  <div class="row">
+    <div class="col-xs-12">
+      <br/>
+      <h4 style="margin-top:0px"><%= video.title unless video.title.nil? %><br></h4>
+      <p class="text-muted">
+        <small>
+          <%= render partial: 'videolink', locals: {video: video} %>
+          &nbsp;
+        <%= video.description unless video.description.nil? %>
+        </small>
+      </p>
+    </div>
+  </div>
+<% end %>

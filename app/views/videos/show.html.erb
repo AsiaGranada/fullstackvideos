@@ -20,13 +20,15 @@
            </div>
        </div>
        <div class="col-md-4">
-           <h3>Watch Next</h3>
-           <ul>
-           <% @relateds.each do |video| %>
-           <%= render partial: 'video', locals: {video: video} %>
-           <% end %>
-           </ul>
-         </div>
+          <% unless @relateds.empty? %>
+            <h3 style="padding-left:35px;">Watch Next</h3>
+            <ul>
+            <% @relateds.each do |video| %>
+            <%= render partial: 'whats_next', locals: {video: video} %>
+            <% end %>
+            </ul>
+          <% end %>
+        </div>
    </div>
 </div>
 <div class="container">
