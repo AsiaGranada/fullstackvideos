@@ -1,0 +1,13 @@
+<% if video.free? %>
+  <span class="btn btn-primary btn-xs">Free</span>
+<% else %>
+  <% if user_signed_in? %>
+    <% if current_user.expired? %>
+        <%= link_to('Renew', new_user_registration_path, :class => "btn btn-danger btn-xs") %>
+    <% else %>
+      <%= link_to("View", video, :class => "btn btn-success btn-xs") %>
+    <% end %>
+  <% else %>
+    <%= link_to('Subscribe', new_user_registration_path, :class => "btn btn-danger btn-xs") %>
+  <% end %>
+<% end %>

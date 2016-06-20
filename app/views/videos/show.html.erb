@@ -1,7 +1,16 @@
 <div class="container">
    <div class="row">
        <div class="col-md-8">
-           <h2><%= @video.title unless @video.title.nil? %></h2>
+          <h2><%= @video.title unless @video.title.nil? %>
+            <% if signed_in? %>
+              <% if current_user.admin? %>
+                <%= link_to edit_video_path(@video), class: 'btn btn-primary' do %>
+                  <span class="glyphicon glyphicon-info-edit"></span>
+                  Edit
+                <% end %>
+              <% end %>
+            <% end %>
+          </h2>
            <p class="text-muted">
              <time datetime="<%= @video.date %>" itemprop="datePublished"><%= @video.date.to_formatted_s(:long) unless @video.date.nil? %></time>
              &middot;
@@ -21,19 +30,9 @@
        </div>
        <div class="col-md-4">
           <% unless @relateds.empty? %>
-
-            <% Rails.logger.info "\033[1;34;40m [DEBUG] \033[0m" %>
-            <% Rails.logger.info("\033[1;34;40m [relateds not empty] \033[0m") %>
-
             <h3 style="padding-left:35px;">Watch Next</h3>
             <ul>
             <% @relateds.each do |video| %>
-              <% Rails.logger.info("\033[1;34;40m[iterate relateds]\033[0m") %>
-              <% unless video.nil? %>
-                <% Rails.logger.info("\033[1;34;40m[related video is #{video.title}]\033[0m") %>
-                <% else %>
-                  <% Rails.logger.info("\033[1;34;40m[related video is NIL]\033[0m") %>
-                <% end %>
               <%= render partial: 'whats_next', locals: {video: video} %>
             <% end %>
             </ul>
