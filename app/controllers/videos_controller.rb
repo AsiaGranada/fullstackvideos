@@ -16,9 +16,11 @@ class VideosController < ApplicationController
   def show
    @video = Video.find(params[:id])
    @relateds = []
-   list_of_relateds = @video.relateds
-   list_of_relateds.each do |item|
+   @video.relateds.each do |item|
+     Rails.logger.info "\033[1;34;40m [DEBUG] \033[0m"
+     Rails.logger.info "\033[1;34;40m [item is #{item.wistia}] \033[0m"
      @relateds << Video.where(wistia: item.wistia).first
+     Rails.logger.info "\033[1;34;40m [@relateds contains #{@relateds.count}] \033[0m"
    end
  end
 
