@@ -22,14 +22,14 @@
        <div class="col-md-4">
           <% unless @relateds.empty? %>
 
-            <% Rails.logger.info "\033[1;34;40m[DEBUG]\033[0m" %>
-            <% Rails.logger.info("relateds not empty") %>
+            <% Rails.logger.info "[DEBUG]\033[0m" %>
+            <% Rails.logger.info("\033[1;34;40mrelateds not empty\033[0m") %>
 
             <h3 style="padding-left:35px;">Watch Next</h3>
             <ul>
             <% @relateds.each do |video| %>
-              <% Rails.logger.info("interate relateds") %>
-              <% Rails.logger.info("related video is #{video.title}") %>
+              <% Rails.logger.info("\033[1;34;40miterate relateds\033[0m") %>
+              <% Rails.logger.info("\033[1;34;40mrelated video is #{video.title}\033[0m") %>
 
               <%= render partial: 'whats_next', locals: {video: video} %>
             <% end %>
