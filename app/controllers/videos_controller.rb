@@ -41,7 +41,6 @@ class VideosController < ApplicationController
     @video.relateds.build
     @video.resources.build
     # obtain video metadata using the Wistia API
-    # example wistia IDs: 'pc2jpdwzob', '5ixtput3r7'
     Rails.logger.info("obtaining metadata from Wistia API for #{@video.wistia}")
     media = Wistia::Media.find(@video.wistia)
     @video.title = media.name
@@ -63,6 +62,9 @@ class VideosController < ApplicationController
   # PATCH/PUT /videos/1
   # PATCH/PUT /videos/1.json
   def update
+    Rails.logger.info("updating the thumbnail URL using the Wistia API for #{@video.wistia}")
+    media = Wistia::Media.find(@video.wistia)
+    @video.thumbnail_url = media.thumbnail.url
     respond_to do |format|
       if @video.update(video_params)
         format.html { redirect_to videos_path, notice: 'Updated video listing.' }
