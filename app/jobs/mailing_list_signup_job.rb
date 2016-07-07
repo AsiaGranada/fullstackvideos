@@ -20,13 +20,22 @@ class MailingListSignupJob < ActiveJob::Base
     end
     interest_id = interest_id_by_name(mailchimp, list_id, category_title, interest_name)
     begin
-      result = mailchimp.lists(list_id).members.create(
-        body: {
-          email_address: user.email,
-          status: 'subscribed',
-          merge_fields: {NAME: user.name},
-          interests: Hash[interest_id, true]
-      })
+      unless user.name.nil?
+        result = mailchimp.lists(list_id).members.create(
+          body: {
+            email_address: user.email,
+            status: 'subscribed',
+            merge_fields: {NAME: user.name},
+            interests: Hash[interest_id, true]
+        })
+      else
+        result = mailchimp.lists(list_id).members.create(
+          body: {
+            email_address: user.email,
+            status: 'subscribed',
+            interests: Hash[interest_id, true]
+        })
+      end
     rescue Gibbon::MailChimpError => exception
       Rails.logger.error("add to MailChimp list failed for #{user.email}")
       Rails.logger.error("list_id: #{list_id}, interest_name: #{interest_name}, interest_id: #{interest_id}")
