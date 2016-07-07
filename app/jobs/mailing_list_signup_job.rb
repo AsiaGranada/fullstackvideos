@@ -7,7 +7,11 @@ class MailingListSignupJob < ActiveJob::Base
   end
 
   def subscribe_with_affiliation(mailchimp, user)
-    list_id = user.coupon.mailing_list_id
+    if user.coupon.mailing_list_id.nil?
+      list_id = '015b1c951c'
+    else
+      list_id = user.coupon.mailing_list_id
+    end
     category_title = 'AFFILIATION'
     if user.coupon.list_group.nil?
       interest_name = 'SUBSCRIBER'
