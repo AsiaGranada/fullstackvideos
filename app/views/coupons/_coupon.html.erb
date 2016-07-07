@@ -1,0 +1,8 @@
+<td style="text-align: left;"><strong><%= coupon.code %></strong></td>
+<td><%= coupon.role %></td>
+<td><%= coupon.mailing_list_id %></td>
+<td><%= coupon.list_group %></td>
+<td><%= coupon.price %></td>
+<td><%= link_to 'Show', coupon %></td>
+<td><%= link_to 'Edit', edit_coupon_path(coupon) %></td>
+<td><%= link_to 'Destroy', coupon, method: :delete, data: { confirm: 'Are you sure?' } %></td>

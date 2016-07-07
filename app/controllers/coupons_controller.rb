@@ -6,7 +6,7 @@ class CouponsController < ApplicationController
   respond_to :html
 
   def index
-    @coupons = Coupon.all
+    @coupons = Coupon.order(created_at: :desc).page(params[:page]).per(20)
     respond_with(@coupons)
   end
 

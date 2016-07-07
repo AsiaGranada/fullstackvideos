@@ -24,6 +24,7 @@ gem 'cocoon'
 gem 'devise'
 gem 'gibbon'
 gem 'high_voltage', :github=>"thoughtbot/high_voltage"
+gem 'kaminari'
 gem 'record_tag_helper', '~> 1.0'
 gem 'stripe'
 gem 'stripe_event'
