@@ -1,6 +1,6 @@
-<td>
-  <%= link_to user.email, user %>
-</td>
+<td style="text-align: left;"><%= link_to user.email, user %></td>
+<td><%= user.coupon.list_group if user.coupon %></td>
+<td><%= user.created_at.to_formatted_s(:db) %></td>
 <td>
   <%= form_for(user) do |f| %>
     <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
