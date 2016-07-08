@@ -44,7 +44,7 @@ class MailingListSignupJob < ActiveJob::Base
       Rails.logger.error("exception.body #{exception.body}")
       Rollbar.error(exception.detail, :user_info => user.email) unless exception.body['status'] == 400
     end
-    Rails.logger.info("Subscribed #{user.email} to MailChimp list with group #{user.coupon.list_group.upcase}") if result
+    Rails.logger.info("Subscribed #{user.email} to MailChimp list") if result
   end
 
   def subscribe_without_affiliation(mailchimp, user)
