@@ -7,6 +7,7 @@ StripeEvent.configure do |events|
       Rails.logger.info("Stripe webhook rec'd: customer.subscription.deleted for #{@user.email}")
       @user.expired!
       @user.save!
+      ExpireSubscriptionJob.perform_later(@user)
     end
   end
 end
