@@ -1,3 +1,4 @@
+<td style="text-align: left;"><%= user.name if user.name %></td>
 <td style="text-align: left;"><%= link_to user.email, user %></td>
 <td><%= user.coupon.list_group if user.coupon %></td>
 <td><%= user.created_at.to_formatted_s(:db) %></td>
