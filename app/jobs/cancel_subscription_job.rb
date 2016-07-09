@@ -1,5 +1,5 @@
 class CancelSubscriptionJob < ActiveJob::Base
-  # include Rollbar::ActiveJob
+  include Rollbar::ActiveJob
 
   def perform(user)
     customer = Stripe::Customer.retrieve(user.stripe_id)

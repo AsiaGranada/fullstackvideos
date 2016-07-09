@@ -1,5 +1,5 @@
 class ExpireSubscriptionJob < ActiveJob::Base
-  # include Rollbar::ActiveJob
+  include Rollbar::ActiveJob
 
   def perform(user)
     mailchimp = Gibbon::Request.new(api_key: Rails.application.secrets.mailchimp_api_key)

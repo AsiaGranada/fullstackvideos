@@ -1,5 +1,5 @@
 class PaymentJob < ActiveJob::Base
-  # include Rollbar::ActiveJob
+  include Rollbar::ActiveJob
 
   def perform(user)
     if !user.stripe_token.present?
