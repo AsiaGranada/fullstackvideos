@@ -3,8 +3,7 @@
   <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
 <% else %>
   <li><%= smart_link_to 'Sign in', new_user_session_path %></li>
-  <li><%= smart_link_to 'Subscribe', new_user_registration_path %></li>
-  <li><%= smart_link_to 'FAQ', new_user_registration_path %></li>
+  <li><%= smart_link_to 'Sign up', new_user_registration_path %></li>
 <% end %>
 <% if user_signed_in? %>
   <% if current_user.try(:admin?) %>
