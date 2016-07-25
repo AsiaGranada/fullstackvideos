@@ -1,6 +1,9 @@
 <div class="authform">
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :role => 'form'}) do |f| %>
     <h3>Sign in</h3>
+    <p>
+      Sign in for access to all the videos.
+    </p>
     <%= devise_error_messages! %>
     <div class="form-group">
       <%- if devise_mapping.registerable? %>

@@ -24,7 +24,7 @@ class PaymentJob < ActiveJob::Base
     customer = Stripe::Customer.create(
       :email => user.email,
       :card => user.stripe_token,
-      :plan => 'vip_monthly'
+      :plan => 'vip_1wk_trial'
     )
     user.subscriber!
     user.stripe_id = customer.id

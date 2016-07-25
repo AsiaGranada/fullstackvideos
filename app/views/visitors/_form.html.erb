@@ -6,7 +6,9 @@
       <% end %>
       <div class="authform">
         <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form', :class => 'payment-form'}) do |f| %>
-          <h3>$19/month</h3>
+          <h3>One week FREE!</h3>
+          <p>Sign up to get one week FREE access to all videos.
+          After that, $19 monthly to support the project.</p>
           <div id='stripe_error' class='alert alert-danger' style='display:none' ></div>
           <%= devise_error_messages! %>
           <div class="form-group">
