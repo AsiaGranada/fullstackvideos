@@ -7,20 +7,22 @@ class MailingListSignupJob < ActiveJob::Base
   end
 
   def subscribe_with_affiliation(mailchimp, user)
-    if user.coupon.mailing_list_id.nil?
+    if user.coupon.mailing_list_id.blank?
       list_id = '015b1c951c'
+      Rails.logger.info("user.coupon.mailing_list_id is blank")
     else
       list_id = user.coupon.mailing_list_id
+      Rails.logger.info("user.coupon.mailing_list_id is #{user.coupon.mailing_list_id}")
     end
     category_title = 'AFFILIATION'
-    if user.coupon.list_group.nil?
+    if user.coupon.list_group.blank?
       interest_name = 'SUBSCRIBER'
     else
       interest_name = user.coupon.list_group.upcase
     end
     interest_id = interest_id_by_name(mailchimp, list_id, category_title, interest_name)
     begin
-      unless user.name.nil?
+      unless user.name.blank?
         result = mailchimp.lists(list_id).members.create(
           body: {
             email_address: user.email,
@@ -65,7 +67,7 @@ class MailingListSignupJob < ActiveJob::Base
   end
 
   def interest_id_by_name(mailchimp, list_id, category_title, interest_name)
-      return nil if (list_id.nil? || category_title.nil? || interest_name.nil?)
+      return nil if (list_id.blank? || category_title.blank? || interest_name.blank?)
       category_id = category_id_by_title(mailchimp, list_id, category_title)
       interests = mailchimp.lists(list_id).interest_categories(category_id).interests.retrieve(params: {"count": "100"})
       interests['interests'].each do |interest|
@@ -77,7 +79,8 @@ class MailingListSignupJob < ActiveJob::Base
   end
 
   def category_id_by_title(mailchimp, list_id, category_title)
-      return nil if (list_id.nil? || category_title.nil?)
+      return nil if (list_id.blank? || category_title.blank?)
+      Rails.logger.info("category_id_by_title: list_id is #{list_id}")
       json_hash = mailchimp.lists(list_id).interest_categories.retrieve(params: {"count": "100"})
       json_hash['categories'].each do |category|
         if category['title'] == category_title
