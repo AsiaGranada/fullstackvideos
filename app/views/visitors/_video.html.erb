@@ -9,7 +9,7 @@
         <small>
           <%= render partial: 'videolink', locals: {video: video} %>
           &nbsp;
-          <time datetime="<%= video.date %>"><%= video.date.to_formatted_s(:long) unless video.date.nil? %></time>
+          <%= video.duration unless video.duration.nil? %>
         </small>
       </p>
     </div>
