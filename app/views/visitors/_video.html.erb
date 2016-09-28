@@ -9,7 +9,7 @@
         <small>
           <%= render partial: 'videolink', locals: {video: video} %>
           &nbsp;
-          <%= video.duration unless video.duration.nil? %>
+          <%= "#{video.duration } minutes" unless video.duration.nil? %>
         </small>
       </p>
     </div>
