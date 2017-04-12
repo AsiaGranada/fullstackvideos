@@ -5,19 +5,10 @@
     </div>
     <div class="col-md-4">
       <h3>
-        Support the project!
+        Subscribe!
       </h3>
-      <h4>
-        One month FREE!
-      </h4>
-      <p>
-        We're on a mission to help everyone to learn.
-      </p>
-      <p>
-        Support the project and get access to all the videos from past weeks. Sign up to get one month FREE access.
-        After that, $19 monthly to support the project.
-      </p>
-
+      <p>Get the videos in combination with the book series
+        <em>Learn Ruby on Rails</em> from the RailsApps project.</p>
       <% if user_signed_in? %>
         <% if current_user.expired? %>
             <a href="#" class="btn btn-danger btn-xlarge" data-toggle="modal" data-target="#purchaseModal">Renew</a>
@@ -25,25 +16,10 @@
           You have a subscription.
         <% end %>
       <% else %>
-        <a href="#" class="btn btn-danger btn-xlarge" data-toggle="modal" data-target="#purchaseModal">Sign Up</a>
+        <a href="https://tutorials.railsapps.org/#products" class="btn btn-danger btn-xlarge">Learn More</a>
       <% end %>
     </div>
     <div class="col-md-4">
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-3">
-    </div>
-    <div class="col-md-6">
-      <dl>
-        <dt>
-          <br />
-          Why do I need to subscribe?
-        </dt>
-        <dd>
-        To keep the free videos coming, we need your help. Support the project and you'll get access to all the past videos.
-        </dd>
-      </dl>
-    <div class="col-md-3">
-    </div>
 </div>
